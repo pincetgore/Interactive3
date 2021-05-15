@@ -5,52 +5,92 @@
 #include <stdio.h>
 #include <math.h>
 
-//a * x ** 2 + b * x + c = 0
-int calcSquareEq(int a, int b, int c, double* x1, double* x2){
-    long discr = b*b-4*a*c;
-    if (discr > 0){
-        printf ("D>0, уравнение имеет два корня:\n");
-        *x1 = (-b + sqrt(discr))/(2*a);
-        *x2 = (-b - sqrt(discr))/(2*a);
-        printf ("x1 = %f\n", x1);
-        printf ("x2 = %f\n", x2);
-        return 1;
-    }
-    else if (discr < 0){
-        printf ("D<0, уравнение не имеет корней\n");
-        return -1;
-    }
-    else if (discr == 0){
-        printf ("D=0, уравнение имеет один корень:\n");
-        *x1 = -1.*b/(2*a);
-        printf ("x1 = %f\n", x1);
-    return 0;
-    }
+//Задание1(функция подсчета)
+//int calcSquareEq(int a, int b, int c, double* x1, double* x2){
+//    long discr = b*b-4*a*c;
+//    if (discr > 0){
+//        printf ("D>0, уравнение имеет два корня:\n");
+//        *x1 = (-b + sqrt(discr))/(2*a);
+//        *x2 = (-b - sqrt(discr))/(2*a);
+//        printf ("x1 = %f\n", x1);
+//        printf ("x2 = %f\n", x2);
+//        return 1;
+//    }
+//    else if (discr < 0){
+//        printf ("D<0, уравнение не имеет корней\n");
+//        return -1;
+//    }
+//    else if (discr == 0){
+//        printf ("D=0, уравнение имеет один корень:\n");
+//        *x1 = -1.*b/(2*a);
+//        printf ("x1 = %f\n", x1);
+//    return 0;
+//    }
+//}
+
+//Задание2(функция обнаружения четных чисел и умножения нечетных)
+//int ArrEven (int* arr, int length){
+//    int ret = 0;
+//    for (int i = 0; i < length; i++)
+//    if (arr[i] % 2 != 0){
+//        arr[i] = arr[i]*2;
+//        ret=1;
+//    }
+//    return ret;
+//}
+
+//Задание2(Функция вывода массива)
+//void PrintArr (int* arr, int length){
+//    for (int i = 0; i<length; i++)
+//        printf("%d\n", arr[i]);
+//}
+
+//Задание3(функция перевода значений массива)
+asShortPrint(unsigned* a, int len){
+   unsigned short* out = a;
+    for (int i = 0; i<len*2; i++)
+       printf("%d", *(out+i));
 }
+
 int main()
 {
-    int a,b,c,z;
-    double x1, x2;
-    printf ("Введите значение a: ");
-    scanf ("%d\n", &a);
-    printf ("Введите значение b: ");
-    scanf ("%d\n", &b);
-    printf ("Введите значение c: ");
-    scanf ("%d\n", &c);
-    z=calcSquareEq(a, b, c, &x1, &x2);
-    switch (z){
-    case 1:
-        printf ("Уравнение имеет два корня: x1 = %lf, x2 = %lf", x1, x2);
-                break;
-    case 0:
-        printf ("Уравнение имеет один корень: x1 = %lf", x1);
-        break;
-    case -1:
-        printf ("Уравнение не имеет корней");
-        break;
-    }
+ int arr [10] = {0, 1, 2, 3, 4, 65541, 65542, 65543, 65544, 65545};
+ asShortPrint(arr,10);
+
+//задание2
+//    int arr [5] = {1, 3, 5, 6, 10};
+//    PrintArr(arr,5);
+//    printf ("Результат задания 2:\n");
+//    if (ArrEven(arr,5))
+//        PrintArr(arr,5);
+//        else
+//        printf("Массив не содержит четных чисел");
+
+// задание1
+//    int a,b,c,z;
+//    double x1, x2;
+//    printf ("Введите значение a: ");
+//    scanf ("%d\n", &a);
+//    printf ("Введите значение b: ");
+//    scanf ("%d\n", &b);
+//    printf ("Введите значение c: ");
+//    scanf ("%d\n", &c);
+//    z=calcSquareEq(a, b, c, &x1, &x2);
+//    switch (z){
+//    case 1:
+//        printf ("Уравнение имеет два корня: x1 = %lf, x2 = %lf", x1, x2);
+//                break;
+//    case 0:
+//        printf ("Уравнение имеет один корень: x1 = %lf", x1);
+//        break;
+//    case -1:
+//        printf ("Уравнение не имеет корней");
+//        break;
+//    }
+
     return 0;
 }
+
 
 
 
